@@ -2,43 +2,146 @@
     {
         "id": 1,
         "title": "Spaghetti Carbonara",
-        "description": "A creamy, authentic Italian pasta dish with eggs, cheese, and pancetta.",
+        "description": "A creamy, authentic Italian pasta dish that combines perfectly cooked spaghetti with a silky sauce made from eggs, Pecorino Romano, and crispy guanciale. This classic Roman dish is known for its rich flavors and simple yet precise preparation.",
         "category": "Dinner",
-        "image": "https://images.pexels.com/photos/30373424/pexels-photo-30373424/free-photo-of-delicious-italian-pasta-dish-with-walnuts.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        "image": "https://images.pexels.com/photos/30373424/pexels-photo-30373424/free-photo-of-delicious-italian-pasta-dish-with-walnuts.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "ingredients": [
+            "400g spaghetti",
+            "200g guanciale or pancetta, diced",
+            "4 large eggs",
+            "100g Pecorino Romano, freshly grated",
+            "100g Parmigiano Reggiano, freshly grated",
+            "2 cloves garlic, whole",
+            "Black pepper, freshly ground",
+            "Salt, to taste"
+        ],
+        "instructions": "1. Bring a large pot of salted water to boil for the pasta.\n\n2. While waiting for the water, dice the guanciale and grate the cheeses. Mix the eggs in a bowl with the grated cheese and plenty of black pepper.\n\n3. Cook the guanciale in a large pan over medium heat until crispy but not too hard, about 7 minutes. Remove from heat and set aside.\n\n4. Cook the spaghetti in the boiling water according to package instructions until al dente.\n\n5. Reserve 1 cup of pasta water before draining.\n\n6. Working quickly, add the hot pasta to the pan with the guanciale, then add the egg and cheese mixture, stirring vigorously to create a creamy sauce. Add pasta water as needed to achieve desired consistency.\n\n7. Serve immediately with extra grated cheese and black pepper.",
+        "tips": "The key to perfect carbonara is working quickly when combining the hot pasta with the egg mixture - you want the eggs to create a creamy sauce without scrambling. Never add cream to authentic carbonara!",
+        "health": "While this is a rich dish, it provides a good balance of protein and carbohydrates. The eggs provide valuable nutrients including vitamin D and B12. Enjoy in moderation as part of a balanced diet."
     },
     {
         "id": 2,
         "title": "Mediterranean Quinoa Salad",
-        "description": "A fresh, healthy salad with quinoa, feta, olives, and tomatoes.",
+        "description": "A vibrant and nutritious salad that combines protein-rich quinoa with fresh Mediterranean ingredients. Perfect for a light lunch or as a side dish, this salad brings together the flavors of Greece with a modern twist.",
         "category": "Lunch",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+        "ingredients": [
+            "1 cup quinoa",
+            "2 cups water",
+            "1 cucumber, diced",
+            "2 cups cherry tomatoes, halved",
+            "1 red onion, finely chopped",
+            "200g feta cheese, crumbled",
+            "1 cup Kalamata olives, pitted",
+            "Fresh parsley and mint",
+            "3 tbsp extra virgin olive oil",
+            "2 tbsp lemon juice",
+            "Salt and pepper to taste"
+        ],
+        "instructions": "1. Rinse quinoa thoroughly and cook in water according to package instructions. Let cool.\n\n2. While quinoa is cooling, prepare the vegetables: dice cucumber, halve tomatoes, and finely chop the onion.\n\n3. Make the dressing by whisking together olive oil, lemon juice, salt, and pepper.\n\n4. In a large bowl, combine cooled quinoa, vegetables, feta, and olives.\n\n5. Pour the dressing over the salad and toss gently.\n\n6. Add fresh herbs and mix lightly.\n\n7. Taste and adjust seasoning if needed.\n\n8. Chill for at least 30 minutes before serving to allow flavors to meld.",
+        "tips": "You can make this salad ahead of time - it actually tastes better the next day when the flavors have had time to develop. Feel free to add other Mediterranean ingredients like roasted red peppers or artichoke hearts.",
+        "health": "This salad is a nutritional powerhouse! Quinoa provides complete protein, while olive oil offers healthy fats. The vegetables add fiber, vitamins, and minerals. It's perfect for those following a Mediterranean diet pattern."
     },
     {
         "id": 3,
         "title": "Homemade Margherita Pizza",
-        "description": "A simple yet delicious pizza with fresh basil, mozzarella, and tomatoes.",
+        "description": "Experience the magic of Naples at home with this authentic Margherita pizza. This classic recipe features a thin, crispy crust topped with San Marzano tomatoes, fresh mozzarella, and aromatic basil - the colors of the Italian flag!",
         "category": "Dinner",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38"
+        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "ingredients": [
+            "For the dough:",
+            "4 cups 00 flour",
+            "1.5 cups warm water",
+            "2 tsp active dry yeast",
+            "2 tsp salt",
+            "2 tbsp olive oil",
+            "For the topping:",
+            "1 can San Marzano tomatoes",
+            "Fresh mozzarella",
+            "Fresh basil leaves",
+            "Extra virgin olive oil",
+            "Salt to taste"
+        ],
+        "instructions": "For the dough:\n1. Mix yeast with warm water and let stand for 5-10 minutes until foamy.\n2. In a large bowl, combine flour and salt.\n3. Add the yeast mixture and olive oil to the flour.\n4. Knead for 10-15 minutes until smooth and elastic.\n5. Let rise in a covered bowl for 2 hours.\n\nFor the pizza:\n1. Preheat oven to highest setting (ideally 500°F/260°C) with a pizza stone if available.\n2. Divide dough into 4 portions and shape into rounds.\n3. Crush tomatoes and spread thinly on dough.\n4. Add torn pieces of mozzarella.\n5. Bake for 8-10 minutes until crust is golden.\n6. Add fresh basil leaves and a drizzle of olive oil after baking.",
+        "tips": "For the best results, let the dough come to room temperature before shaping. Don't overload the pizza with toppings - less is more with Margherita! If you have a pizza stone, place it in the oven while preheating for the best crust.",
+        "health": "This pizza is made with simple, wholesome ingredients. The tomatoes provide lycopene, while fresh basil adds antioxidants. Using good quality olive oil adds healthy fats to your meal."
     },
     {
         "id": 4,
         "title": "Blueberry Pancakes",
-        "description": "Fluffy pancakes bursting with fresh blueberries, perfect for breakfast.",
+        "description": "Light and fluffy pancakes studded with juicy blueberries and served with warm maple syrup. These breakfast delights are made with buttermilk for extra tenderness and have a perfectly golden-brown exterior.",
         "category": "Breakfast",
-        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8"
+        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "2 tablespoons sugar",
+            "2 teaspoons baking powder",
+            "1 teaspoon baking soda",
+            "1/2 teaspoon salt",
+            "2 cups buttermilk",
+            "2 large eggs",
+            "1/4 cup melted butter",
+            "2 cups fresh blueberries",
+            "Extra butter for cooking",
+            "Maple syrup for serving",
+            "Optional: whipped cream, extra blueberries for garnish"
+        ],
+        "instructions": "1. In a large bowl, whisk together flour, sugar, baking powder, baking soda, and salt.\n\n2. In another bowl, whisk buttermilk, eggs, and melted butter until well combined.\n\n3. Pour the wet ingredients into the dry ingredients and whisk just until combined. Don't overmix - some small lumps are okay.\n\n4. Gently fold in the blueberries.\n\n5. Heat a large griddle or non-stick pan over medium heat. Add a small pat of butter to coat.\n\n6. For each pancake, pour about 1/4 cup of batter onto the griddle.\n\n7. Cook until bubbles form on the surface (about 2-3 minutes).\n\n8. Flip and cook the other side until golden brown (about 1-2 minutes).\n\n9. Serve warm with maple syrup, whipped cream, and extra blueberries if desired.",
+        "tips": "Let the batter rest for 5 minutes before cooking for fluffier pancakes. If using frozen blueberries, don't thaw them first - add them while frozen to prevent color bleeding.",
+        "health": "Blueberries are packed with antioxidants and vitamin C. Using whole wheat flour for half the flour amount can add extra fiber and nutrients to this breakfast treat."
     },
     {
         "id": 5,
         "title": "Chocolate Lava Cake",
-        "description": "A decadent dessert with a gooey chocolate center, served with ice cream.",
+        "description": "A luxurious individual dessert featuring a warm chocolate cake with an irresistibly gooey center that flows like molten lava. Topped with vanilla ice cream, this dessert creates the perfect hot-and-cold combination.",
         "category": "Desserts",
-        "image": "https://images.pexels.com/photos/5163948/pexels-photo-5163948.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "image": "https://images.pexels.com/photos/5163948/pexels-photo-5163948.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "ingredients": [
+            "200g dark chocolate (70% cocoa), chopped",
+            "170g unsalted butter",
+            "4 large eggs",
+            "170g granulated sugar",
+            "2 tablespoons all-purpose flour",
+            "1 teaspoon vanilla extract",
+            "Pinch of salt",
+            "Cocoa powder for dusting",
+            "Vanilla ice cream for serving",
+            "Fresh berries for garnish (optional)",
+            "Powdered sugar for dusting (optional)"
+        ],
+        "instructions": "1. Preheat oven to 425°F (220°C). Butter and lightly dust four 6-ounce ramekins with cocoa powder.\n\n2. In a double boiler or heat-safe bowl set over simmering water, melt chocolate and butter together until smooth. Remove from heat and let cool slightly.\n\n3. In a large bowl, beat eggs, sugar, and vanilla until light and thick, about 3 minutes.\n\n4. Fold the melted chocolate mixture into the egg mixture until combined.\n\n5. Sift flour and salt over the batter and fold in until just combined.\n\n6. Divide the batter among the prepared ramekins.\n\n7. Place ramekins on a baking sheet and bake for 12-14 minutes until edges are firm but centers are soft.\n\n8. Let cool for 1 minute, then invert onto serving plates.\n\n9. Serve immediately with vanilla ice cream, fresh berries, and a dusting of powdered sugar.",
+        "tips": "Don't overbake - the secret to the perfect lava center is timing. You can prepare the batter ahead and refrigerate the filled ramekins, just add 1-2 minutes to baking time when cooking from cold.",
+        "health": "While this is a rich dessert best enjoyed in moderation, dark chocolate contains antioxidants and can have mood-boosting properties. The eggs provide protein and essential nutrients."
     },
     {
         "id": 6,
         "title": "Grilled Chicken Wrap",
-        "description": "A healthy wrap with grilled chicken, avocado, and fresh veggies.",
+        "description": "A nutritious and satisfying wrap featuring perfectly seasoned grilled chicken, creamy avocado, and crisp fresh vegetables, all wrapped in a warm tortilla with a zesty sauce. Perfect for a healthy lunch on the go.",
         "category": "Lunch",
-        "image": "https://images.unsplash.com/photo-1622973536968-3ead9e780960"
+        "image": "https://images.unsplash.com/photo-1622973536968-3ead9e780960",
+        "ingredients": [
+            "2 chicken breasts",
+            "4 large flour tortillas",
+            "2 ripe avocados, sliced",
+            "2 cups mixed salad greens",
+            "1 cup cherry tomatoes, halved",
+            "1 cucumber, thinly sliced",
+            "1 red onion, thinly sliced",
+            "For the marinade:",
+            "2 tablespoons olive oil",
+            "1 lime, juiced",
+            "2 cloves garlic, minced",
+            "1 teaspoon ground cumin",
+            "1 teaspoon paprika",
+            "Salt and pepper to taste",
+            "For the sauce:",
+            "1/2 cup Greek yogurt",
+            "2 tablespoons chipotle sauce",
+            "1 tablespoon lime juice",
+            "Salt to taste"
+        ],
+        "instructions": "1. Mix marinade ingredients in a bowl. Add chicken breasts and marinate for at least 30 minutes.\n\n2. Preheat grill or grill pan to medium-high heat.\n\n3. Grill chicken for 6-7 minutes per side or until internal temperature reaches 165°F (74°C).\n\n4. Let chicken rest for 5 minutes, then slice against the grain.\n\n5. Mix sauce ingredients in a small bowl.\n\n6. Warm tortillas slightly to make them more pliable.\n\n7. Assemble wraps:\n   - Spread sauce on tortilla\n   - Layer with greens\n   - Add sliced chicken\n   - Top with avocado, tomatoes, cucumber, and red onion\n\n8. Fold bottom up and roll tightly from one side.\n\n9. Optional: Grill the wrapped tortilla for 1-2 minutes to seal.",
+        "tips": "To prevent the wrap from getting soggy, pat all vegetables dry before assembling. For meal prep, keep the sauce separate and add just before eating. You can also use leftover grilled chicken to make this wrap even quicker.",
+        "health": "This wrap is packed with lean protein from the chicken, healthy fats from avocado, and plenty of vitamins and fiber from the fresh vegetables. Using Greek yogurt in the sauce adds protein while keeping the calories lower than traditional mayo-based sauces."
     }
 ]

@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +16,8 @@ body {
 }
 
 /* Header and Navigation */
-header {
+/* Home header with hero background */
+header.home {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f');
     background-size: cover;
     background-position: center;
@@ -23,61 +28,62 @@ header {
     justify-content: space-between;
 }
 
+/* Simple header for inner pages */
+header.simple {
+    background: #333;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.6);
+    padding: 16px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 nav .logo {
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 1px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav .logo:hover {
+    color: #f1c40f;
 }
 
 nav ul {
     display: flex;
     list-style: none;
+    gap: 20px;
 }
 
 nav ul li {
-    margin-left: 30px;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    transition: color 0.3s, transform 0.3s;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
     color: #f1c40f;
-    transform: scale(1.1);
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 15px;
-    border-radius: 25px;
-}
-
-.search-bar input {
-    border: none;
-    background: transparent;
-    color: white;
-    outline: none;
-    font-size: 14px;
-    width: 150px;
-}
-
-.search-bar i {
-    color: white;
-    cursor: pointer;
 }
 
 .hero {
@@ -177,9 +183,46 @@ nav ul li a:hover {
 
 .recipe-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
 }
+
+/* recipe detail improvements */
+.recipe-detail { 
+    background: white; 
+    padding: 24px; 
+    border-radius: 8px; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.recipe-detail h1 { margin-bottom: 6px; }
+.recipe-detail section { margin-top: 14px; }
+.recipe-detail img { border-radius: 8px; }
+
+/* category and recipe grid tweaks */
+.recipe-card { 
+    min-height: 320px; 
+    display: flex; 
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.recipe-card img { 
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.recipe-card h3 { flex:0 0 auto; }
+.recipe-card p { flex:1 1 auto; }
 
 .recipe-card {
     background: white;
@@ -227,52 +270,136 @@ nav ul li a:hover {
     background: #e67e22;
 }
 
-/* Newsletter Section */
-.newsletter {
-    padding: 50px;
-    background: linear-gradient(135deg, #f1c40f, #e67e22);
+/* Join Community Section */
+.join-community {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.join-community::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1516824711718-9c1e683412ac?auto=format&fit=crop&w=2000&q=80') center/cover;
+    opacity: 0.1;
+}
+
+.join-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.join-text {
+    flex: 1;
+}
+
+.join-text h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.join-text h2 i {
+    color: #f1c40f;
+}
+
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.benefits p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.benefits i {
+    color: #f1c40f;
+}
+
+.join-form {
+    flex: 1;
+    max-width: 500px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3);
+}
+
+.input-group button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #f1c40f;
+    color: #2c3e50;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group button:hover {
+    background: #f39c12;
+    transform: translateY(-2px);
+}
+
+.form-note {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
 }
 
-.newsletter h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.newsletter p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.newsletter form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.newsletter input {
-    padding: 12px;
-    border: none;
-    border-radius: 25px;
-    width: 70%;
-    font-size: 16px;
-}
-
-.newsletter button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    background: #2c3e50;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.newsletter button:hover {
-    background: #34495e;
+@media (max-width: 768px) {
+    .join-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .benefits {
+        align-items: center;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .join-text h2 {
+        justify-content: center;
+    }
 }
 
 /* Footer */
@@ -280,26 +407,37 @@ footer {
     background: #2c3e50;
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 40px 20px;
+    margin-top: auto;
 }
 
 footer p {
     margin: 0;
+    font-size: 15px;
+    color: #ecf0f1;
 }
 
 .social-links {
-    margin-top: 15px;
+    margin: 20px 0;
 }
 
 .social-links a {
     color: white;
-    margin: 0 10px;
-    font-size: 20px;
-    transition: color 0.3s;
+    margin: 0 15px;
+    font-size: 22px;
+    transition: all 0.3s;
 }
 
 .social-links a:hover {
     color: #f1c40f;
+    transform: translateY(-2px);
+}
+
+/* Make body flex for sticky footer */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Animations */
@@ -356,4 +494,93 @@ footer p {
     .newsletter input {
         width: 100%;
     }
+}
+
+/* Add recipe form */
+.hidden { display: none; }
+.add-recipe { padding: 40px; background: #fff; }
+.add-recipe h2 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
+.add-recipe-form { max-width: 700px; margin: 0 auto; display:flex; flex-direction:column; gap:12px; }
+.add-recipe-form input,
+.add-recipe-form textarea { padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 15px; }
+.add-recipe-form input[type="url"] { font-style: italic; }
+.add-recipe-form .btn { align-self: center; }
+
+/* Auth form styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px 20px;
+}
+
+.auth-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.auth-card h2 {
+    margin-bottom: 24px;
+    color: #2c3e50;
+    font-size: 28px;
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-form input {
+    padding: 14px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.auth-form input:focus {
+    border-color: #f1c40f;
+    box-shadow: 0 0 0 3px rgba(241,196,15,0.1);
+    outline: none;
+}
+
+.auth-error {
+    color: #e74c3c;
+    background: #fde8e8;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.auth-card p {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+.auth-card a {
+    color: #f1c40f;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.auth-card a:hover {
+    color: #e67e22;
+}
+
+.auth-form button.btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-top: 8px;
 }

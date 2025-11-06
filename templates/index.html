@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>APPROX Recipe's</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasteTales</title>
     <link rel="stylesheet" href="../static/styles.css">
     <link
       rel="stylesheet"
@@ -11,19 +11,24 @@
     />
   </head>
   <body>
-    <header>
+    <header class="home">
       <nav>
-        <div class="logo">Culinary Hub</div>
+        <a href="/" class="logo">TasteTales</a>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#recipes">Recipes</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="#categories">Categories</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {% if username %}
+            <li><a href="#" id="addRecipeBtn">Add Recipe</a></li>
+            <li style="display:flex;align-items:center;">
+              <i class="fas fa-user" style="color:#f1c40f;margin-right:8px;"></i>
+              <span style="color: #f1c40f; padding: 8px 16px;">Hi, {{ display_name or username }}</span>
+            </li>
+            <li><a href="/logout">Logout</a></li>
+          {% else %}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          {% endif %}
         </ul>
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search recipes..." />
-          <i class="fas fa-search"></i>
-        </div>
       </nav>
       <div class="hero">
         <h1>Explore Culinary Delights</h1>
@@ -31,65 +36,96 @@
           Discover a world of flavors with our handpicked recipes for every
           occasion.
         </p>
-        <a href="#recipes" class="btn">Browse Recipes</a>
+        <a href="#categories" class="btn">Browse Categories</a>
       </div>
     </header>
 
     <section id="categories" class="categories">
       <h2>Recipe Categories</h2>
       <div class="category-grid">
-        <div class="category-card" data-category="Breakfast">
+        <a class="category-card" href="/category/Breakfast">
           <img
             src="https://images.unsplash.com/photo-1525351484163-7529414344d8"
             alt="Breakfast"
           />
           <h3>Breakfast</h3>
-        </div>
-        <div class="category-card" data-category="Lunch">
+        </a>
+        <a class="category-card" href="/category/Lunch">
           <img
             src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
             alt="Lunch"
           />
           <h3>Lunch</h3>
-        </div>
-        <div class="category-card" data-category="Dinner">
+        </a>
+        <a class="category-card" href="/category/Dinner">
           <img
             src="https://images.pexels.com/photos/14930759/pexels-photo-14930759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="Dinner"
           />
           <h3>Dinner</h3>
-        </div>
-        <div class="category-card" data-category="Desserts">
+        </a>
+        <a class="category-card" href="/category/Desserts">
           <img
             src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="Desserts"
           />
           <h3>Desserts</h3>
-        </div>
+        </a>
       </div>
     </section>
 
-    <section id="recipes" class="recipes">
-      <h2>Featured Recipes</h2>
-      <div class="recipe-grid" id="recipeGrid"></div>
-    </section>
-
-    <section class="newsletter">
-      <h2>Join Our Newsletter</h2>
-      <p>Get the latest recipes and cooking tips delivered to your inbox.</p>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit" class="btn">Subscribe</button>
+    <!-- Add Recipe Section (hidden by default) -->
+    <section id="add-recipe" class="add-recipe hidden">
+      <h2>Add a New Recipe</h2>
+      <form id="addRecipeForm" class="add-recipe-form" enctype="multipart/form-data">
+        <input type="text" id="recipeTitle" name="title" placeholder="Title" required />
+        <input type="text" id="recipeCategory" name="category" placeholder="Category (e.g. Dinner)" required />
+        <input type="file" id="recipeImageFile" name="image" accept="image/*" />
+        <input type="url" id="recipeImage" name="image_url" placeholder="Image URL (optional)" />
+        <textarea id="recipeDescription" name="description" placeholder="Description" rows="4" required></textarea>
+        <textarea id="recipeIngredients" name="ingredients" placeholder="Ingredients (one per line)" rows="4"></textarea>
+        <textarea id="recipeInstructions" name="instructions" placeholder="Instructions (one per line or paragraph)" rows="4"></textarea>
+        <textarea id="recipeHealth" name="health" placeholder="Health benefits (optional)" rows="3"></textarea>
+        <textarea id="recipeTips" name="tips" placeholder="Tips (optional)" rows="3"></textarea>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:10px;">
+          <button type="submit" class="btn">Save Recipe</button>
+          <button type="button" id="cancelAddRecipe" class="btn" style="background:#ccc;color:#222;">Cancel</button>
+        </div>
       </form>
     </section>
 
+    <!-- Featured recipes removed from home; use category pages to browse -->
+
+    <section class="join-community">
+      <div class="join-content">
+        <div class="join-text">
+          <h2><i class="fas fa-utensils"></i> Join Our Cooking Community</h2>
+          <div class="benefits">
+            <p><i class="fas fa-check-circle"></i> Wide recipe collections</p>
+            <p><i class="fas fa-check-circle"></i> Expert cooking tips & tricks</p>
+            <p><i class="fas fa-check-circle"></i> Exclusive menu ideas</p>
+          </div>
+        </div>
+        <form id="newsletterForm" class="join-form">
+          <div class="input-group">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit" class="btn">
+              <i class="fas fa-arrow-right"></i>
+              <span>Join Now</span>
+            </button>
+          </div>
+          <p class="form-note">Join 10,000+ food enthusiasts receiving weekly inspiration!</p>
+        </form>
+      </div>
+    </section>
+
     <footer>
-      <p>© 2025 APPROX Recipe's All rights reserved.</p>
       <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
+      <p>© 2025 TasteTales • Share Your Culinary Journey</p>
     </footer>
 
     <script src="../static/script.js"></script>

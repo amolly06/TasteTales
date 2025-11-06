@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Search results</title>
+    <link rel="stylesheet" href="../static/styles.css">
+  </head>
+  <body>
+  <header class="simple">
+      <nav>
+        <div class="logo">TastyTales</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/category/Breakfast">Categories</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main style="padding:30px;max-width:1000px;margin:0 auto;">
+      <h1>Search results for "{{ query }}"</h1>
+      <div class="recipe-grid">
+        {% for r in results %}
+          <div class="recipe-card">
+            <img src="{{ r.image }}" alt="{{ r.title }}">
+            <h3>{{ r.title }}</h3>
+            <p>{{ r.description }}</p>
+            <a href="/recipe/{{ r.id }}" class="btn">View Recipe</a>
+          </div>
+        {% else %}
+          <p>No results.</p>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>

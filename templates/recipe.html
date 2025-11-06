@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TasteTales - {{ recipe.title if recipe else 'Recipe' }}</title>
+    <meta name="recipe-id" content="{{ recipe.id if recipe else '' }}">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+  <header class="simple">
+      <nav>
+        <a href="/" class="logo">TasteTales</a>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#categories">Categories</a></li>
+          {% if username %}
+            <li><a href="#" id="addRecipeBtn">Add Recipe</a></li>
+            <li style="display:flex;align-items:center;">
+              <i class="fas fa-user" style="color:#f1c40f;margin-right:8px;"></i>
+              <span style="color: #f1c40f; padding: 8px 16px;">Hi, {{ display_name or username }}</span>
+            </li>
+            <li><a href="/logout">Logout</a></li>
+          {% else %}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <main style="padding:30px;max-width:900px;margin:0 auto;">
+      {% if not recipe %}
+        <h2>Recipe not found</h2>
+        <p>The recipe you requested could not be found.</p>
+      {% else %}
+        <article class="recipe-detail">
+          <h1>{{ recipe.title }}</h1>
+          <p style="color:#666;font-size:18px;">
+            <i class="fas fa-utensils"></i> {{ recipe.category }} • 
+            <i class="fas fa-user"></i> {{ recipe.owner or 'unknown' }}
+          </p>
+          <img src="{{ recipe.image }}" alt="{{ recipe.title }}" style="width:100%;max-height:500px;object-fit:cover;border-radius:8px;margin:24px 0;"/>
+
+          <section style="margin-bottom:32px;">
+            <h2 style="font-size:24px;color:#2c3e50;margin-bottom:16px;">Description</h2>
+            <p style="font-size:16px;line-height:1.6;">{{ recipe.description }}</p>
+          </section>
+
+          {% if recipe.ingredients %}
+          <section style="margin-bottom:32px;">
+            <h2 style="font-size:24px;color:#2c3e50;margin-bottom:16px;">Ingredients</h2>
+            <ul style="list-style:none;padding:0;">
+              {% for item in recipe.ingredients %}
+                <li style="margin:8px 0;padding-left:24px;position:relative;">
+                  <i class="fas fa-check" style="color:#f1c40f;position:absolute;left:0;top:5px;"></i>
+                  {{ item }}
+                </li>
+              {% endfor %}
+            </ul>
+          </section>
+          {% endif %}
+
+          {% if recipe.instructions %}
+          <section style="margin-bottom:32px;">
+            <h2 style="font-size:24px;color:#2c3e50;margin-bottom:16px;">Instructions</h2>
+            <div style="white-space:pre-wrap;line-height:1.8;">{{ recipe.instructions }}</div>
+          </section>
+          {% endif %}
+
+          {% if recipe.tips %}
+          <section style="margin-bottom:32px;">
+            <h2 style="font-size:24px;color:#2c3e50;margin-bottom:16px;">Tips</h2>
+            <p style="font-size:16px;line-height:1.6;">{{ recipe.tips }}</p>
+          </section>
+          {% endif %}
+
+          {% if recipe.health %}
+          <section style="margin-bottom:32px;">
+            <h2 style="font-size:24px;color:#2c3e50;margin-bottom:16px;">Health Benefits</h2>
+            <p style="font-size:16px;line-height:1.6;">{{ recipe.health }}</p>
+          </section>
+          {% endif %}
+
+          <div style="margin-top:24px;display:flex;gap:16px;justify-content:flex-end;">
+            {% if username %}
+              <button id="favoriteBtn" class="btn" style="display:flex;align-items:center;gap:8px;">
+                <i class="fas {% if favorited %}fa-heart{% else %}fa-heart-o{% endif %}" style="font-size:18px;"></i>
+                <span>{% if favorited %}Favorited{% else %}Add to Favorites{% endif %}</span>
+              </button>
+              {% if recipe.owner and recipe.owner == username %}
+                <button id="deleteBtn" class="btn" style="background:#e74c3c;color:white;display:flex;align-items:center;gap:8px;">
+                  <i class="fas fa-trash-alt" style="font-size:18px;"></i>
+                  <span>Delete Recipe</span>
+                </button>
+              {% endif %}
+            {% else %}
+              <p><a href="/login">Log in</a> to favorite or manage this recipe.</p>
+            {% endif %}
+          </div>
+
+        </article>
+      {% endif %}
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>© 2025 TasteTales • Discover Amazing Recipes</p>
+    </footer>
+  <script>
+    (function(){
+  const recipeIdRaw = document.querySelector('meta[name="recipe-id"]').getAttribute('content');
+  const recipeId = recipeIdRaw ? Number(recipeIdRaw) : null;
+      const favBtn = document.getElementById('favoriteBtn');
+      const delBtn = document.getElementById('deleteBtn');
+
+      if (favBtn) {
+        favBtn.addEventListener('click', async () => {
+          try {
+            const resp = await fetch(`/api/recipes/${recipeId}/favorite`, { method: 'POST' });
+            const j = await resp.json();
+            if (resp.ok) {
+              favBtn.textContent = j.favorited ? 'Unfavorite' : 'Favorite';
+            } else {
+              alert(j.error || 'Failed');
+            }
+          } catch (e) { alert('Error: '+e); }
+        });
+      }
+
+      if (delBtn) {
+        delBtn.addEventListener('click', async () => {
+          if (!confirm('Delete this recipe? This cannot be undone.')) return;
+          try {
+            const resp = await fetch(`/api/recipes/${recipeId}`, { method: 'DELETE' });
+            const j = await resp.json();
+            if (resp.ok) {
+              alert('Deleted');
+              window.location.href = '/';
+            } else {
+              alert(j.error || 'Failed to delete');
+            }
+          } catch (e) { alert('Error: '+e); }
+        });
+      }
+    })();
+  </script>
+  </body>
+</html>
